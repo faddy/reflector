@@ -1,0 +1,26 @@
+/***********************
+*     Reflector     *
+***********************/
+
+/*
+Written by: Fahad Ghani, fahadghanidgp@gmail.com
+*/
+
+/*
+(you need to be root user to run this application) 
+The reflector is a tool which reflects against an attacker's host the attacker's traffic. It is able to simulate two non-existent hosts: 'victim' and 'relayer', at both the Ethernet and IP levels. Whenever an attacker sends a packet to victim, the packet is intercepted by the reflector application and re-sent as a packet from relayer to the attacker's host. The reply that is sent by the attacker's host to relayer is then sent back as a packet from victim (in reply to the original packet) to the attacker's host.
+
+The program can be compiled using gcc, using libpcap and libnet libraries:
+% gcc -Wall reflector.c -o reflector -lpcap -lnet
+
+The application can be invoked with the following syntax:
+# reflector --victim-ip [IP Addr] --victim-ethernet [Ethernet Addr] \
+            --relayer-ip [IP Addr] --relayer-ethernet [Ethernet Addr]
+
+A non-default interface can be specified using the --interface command-line option.
+
+E.g.:
+# reflector --victim-ip 192.168.1.11 --victim-ethernet 00:0A:0B:0C:11:37 \
+            --relayer-ip 192.168.1.9 --relayer-ethernet 00:0A:06:1B:AB:B0
+ 
+*/
